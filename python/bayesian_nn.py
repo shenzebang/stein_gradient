@@ -289,4 +289,4 @@ if __name__ == '__main__':
     svgd = svgd_bayesnn(X_train, y_train, batch_size = batch_size, n_hidden = n_hidden, max_iter = max_iter)
     svgd_time = time.time() - start
     svgd_rmse, svgd_ll = svgd.evaluation(X_test, y_test)
-    print 'SVGD', svgd_rmse, svgd_ll, svgd_time 
+    print('SVGD'+str(svgd_rmse)+str(svgd_ll)+str(svgd_time))
