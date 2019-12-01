@@ -1,6 +1,6 @@
 import numpy as np
 import scipy.io
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 import numpy.matlib as nm
 from svgd import SVGD
 
@@ -70,7 +70,7 @@ class BayesianLR:
         return [acc, llh]
 
 if __name__ == '__main__':
-    data = scipy.io.loadmat('../data/covertype.mat')
+    data = scipy.io.loadmat('./data/covertype.mat')
     
     X_input = data['covtype'][:, 1:]
     y_input = data['covtype'][:, 0]
@@ -96,5 +96,5 @@ if __name__ == '__main__':
     
     theta = SVGD().update(x0=theta0, lnprob=model.dlnprob, bandwidth=-1, n_iter=6000, stepsize=0.05, alpha=0.9, debug=True)
     
-    print '[accuracy, log-likelihood]'
-    print model.evaluation(theta, X_test, y_test)
+    print('[accuracy, log-likelihood]')
+    print(model.evaluation(theta, X_test, y_test))
